@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            text-align: center;
+        }
+        label {
+            background-color: indigo;
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+    
+        }
+    
+        #file-chosen {
+            margin-left: 0.3rem;
+            font-family: sans-serif;
+        }
+    
+        .button {
+            background-color: #0ce9b9;
+            border: none;
+            color: rgb(80, 77, 77);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #media1{
+            background-color: indigo;
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+
+        }
+    
+        .header {
+            padding: 10px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+        }
+    
+        @media screen and (max-width: 650px) {
+            .col {
+                width: 100%;
+                margin-top: 0;
+            }
+    
+            .hide-md-lg {
+                display: none;
+            }
+        }
+    
+        .vl {
+            border-left: 6px solid green;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 2;
+            down: 0;
+        }
+    
+        .split-layout {
+            display: flex;
+            flex-direction: column;
+    
+            @media screen and (min-width: 30em) {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+    
+        .split-layout__item {
+            flex: 1;
+    
+            @media screen and (min-width: 30em) {
+                padding-left: 1em;
+    
+                &:first-child {
+                    padding: 0;
+                }
+            }
+        }
+
+        .button1 {
+  padding: 15px 25px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button1:hover {background-color: #3e8e41}
+
+.button1:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+
+
+
+
+
+        body {
+    text-align: center;
+    color: green;
+    font-size: 1.2em;
+}
+  
+.display-none {
+    display: none;
+}
+  
+.recording {
+    color: red;
+    background-color: rgb(241 211 211);
+    padding: 5px;
+    margin: 6px auto;
+    width: fit-content;
+}
+  
+video {
+    background-color: black;
+    display: block;
+    margin: 6px auto;
+    width: 420px;
+    height: 240px;
+}
+  
+audio {
+    display: block;
+    margin: 6px auto;
+}
+  
+a {
+    color: green;
+}
+
+
+    </style>
+</head>
+<body bgcolor="#aefaf4">
+    <p></p>
+    <br>
+    
+    
+    <!--<header>
+                <h1 style="color: rgb(118, 4, 248); text-align: center;">Automated Lip Reading Sentence Prediction</h1>
+              </header>-->
+    <div class="header">
+        <h1>Automated Lip Reading Sentence Prediction</h1>
+    
+    </div>
+    <br>
+    <div>
+        <img src="{{url_for('static', filename='i2.JPG')}}" style="float: left;" height="300"
+            width="550" />
+    
+    </div>
+    <h1 style="text-align: center;"> Video Record </h1>
+    <labe style="text-align: center;">
+        <b>Select what you want to record:</b>
+    </label>
+
+    <div class="media1">
+    <select id="media" >
+        
+        <option value="choose-an-option">
+            Choose an option
+        </option>
+        <option value="vid">Video</option>
+        
+    </select>
+    </div>
+    
+    <div class="display-none" id="vid-recorder">
+        <h3>Record Video </h3>
+        <video autoplay id="web-cam-container" style="background-color: black;">
+            Your browser doesn't support
+            the video tag
+        </video>
+    
+        <div class="recording" id="vid-record-status">
+            Click the "Start video Recording"
+            button to start recording
+        </div>
+    
+        <!-- This button will start the video recording -->
+        <button type="button" id="start-vid-recording" onclick="startRecording(this, 
+                document.getElementById('stop-vid-recording'))">
+            Start video recording
+        </button>
+    
+        <!-- This button will stop the video recording -->
+        <button type="button" id="stop-vid-recording" disabled onclick="stopRecording(this, 
+                document.getElementById('start-vid-recording'))">
+            Stop video recording
+        </button>
+    
+        <!--The video element will be created using 
+                JavaScript and contains recorded video-->
+        <!-- <video id="recorded-video"  controls>
+                Your browser doesn't support the video tag
+            </video> -->
+    
+        <!-- The below link will let the
+                 users download the recorded video -->
+        <!-- <a href="" > Download it! </a> -->
+    </div>
+
+    
+
+    <div>
+        <h1>Go For Prediction</h1>
+        <a href="/main3"><button class="button1">CLICK</button></a>
+    </div>
+
+    <div id="particles-js"></div>
+
+    
+    <br>
+    <br>
+    <br>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color:#1abc9c">
+            <br>
+            <h4 style="text-align: center; color: #fff;">Developed By FCRIT Students © 2022 Copyright:</h4>
+            <br>
+            
+            
+            
+        </div>
+        <!-- Copyright -->
+    </footer>
+    
+    <script src="static/index.js"></script>
+    <script src="particles.js"></script>
+
+    
+</body>
+</html>

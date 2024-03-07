@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+    text-align: center;
+    color: green;
+    font-size: 1.2em;
+    background-image: url('img2.png');
+}
+  
+    .center {
+
+text-align: center;
+}
+    label {
+    background-color: indigo;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    
+    }
+    #file-chosen{
+    margin-left: 0.3rem;
+    font-family: sans-serif;
+    }
+    .button {
+    background-color: #0ce9b9;
+    border: none;
+    color: rgb(80, 77, 77);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    .header {
+    padding: 10px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+    }
+    
+    @media screen and (max-width: 650px) {
+    .col {
+    width: 100%;
+    margin-top: 0;
+    }
+    .hide-md-lg {
+    display: none;
+    }
+    }
+    .vl {
+    border-left: 6px solid green;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 2;
+    down:0;
+    }
+    .split-layout {
+    display: flex;
+    flex-direction: column;
+    
+    @media screen and (min-width: 30em) {
+    flex-direction: row;
+    align-items: stretch;
+    }
+    }
+    
+    .split-layout__item {
+    flex: 1;
+    
+    @media screen and (min-width: 30em) {
+    padding-left: 1em;
+    
+    &:first-child {
+    padding: 0;
+    }
+    }
+    }
+    
+    
+    </style>
+
+
+
+</head>
+<body bgcolor="#aefaf4">
+   
+    <p></p>
+    <br>
+    <div class="header">
+        <h1>Automated Lip Reading Sentence Prediction</h1>
+    
+    </div>
+    <br>
+    <div>
+        <img src="{{url_for('static', filename='img5.png')}}" style="float: right;" height="400" width="700" />
+    
+    </div>
+    <p></p>
+    <br>
+    <br>
+    <br>
+    <div class="center">
+        <h1 style="color: green;">Prediction </h1>
+        
+    </div>
+    
+    
+
+    <div class="center">
+    
+        <form action="/main3" method="post" enctype="multipart/form-data" >
+            <input type="file"  name="videofil" style="border: #1abc9c;">
+            <input type="submit">
+        </form>
+    
+    </div>
+
+    <div>
+    
+    
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color:#1abc9c">
+            <br>
+            <h3 style="text-align: center; color: #fff;">Developed By FCRIT Students © 2022 Copyright:</h3>
+            <br>
+            <br>
+    
+    
+    
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!--{% if pred %}
+    <p class="text-center" style="margin-top:25px;font-size: 24px;text-decoration: underline;"><span>{{pred}}<span></p>
+    {% endif %} -->   
+        
+
+</body>
+</html>
